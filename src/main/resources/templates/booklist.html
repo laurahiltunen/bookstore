@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Bookstore</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<h1>Kirjat</h1>
+<table>
+	
+	<th>Nimi</th>
+	<th>Kirjailija</th>
+	<th>Julkaisuvuosi</th>
+
+	<tr th:each = "book : ${books} ">
+		<td th:text = "${book.title}"></td>
+		<td th:text = "${book.author}"></td>
+		<td th:text = "${book.year}"></td>
+		<td><a th:href="@{/delete/{id}(id=${book.id})}">Delete</a></td>
+	</tr>
+	
+</table>	
+<a href="/addBook" class="btn btn-primary">Lisää kirja</a>
+</body>
+</html>
